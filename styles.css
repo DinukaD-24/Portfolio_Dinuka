@@ -346,6 +346,79 @@ h1, h2, h3, h4 {
     border-color: var(--primary-color);
 }
 
+.tech-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.tech-icon-wrapper {
+    position: relative;
+    animation: floating 3s ease-in-out infinite;
+}
+
+.tech-icon-wrapper:nth-child(even) {
+    animation-delay: 1.5s;
+}
+
+.tech-icon {
+    font-size: 3rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.tech-icon:hover {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 0 20px var(--primary-glow);
+    transform: scale(1.1);
+}
+
+.tech-icon .svg-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.tech-icon-wrapper::after {
+    content: attr(title);
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(11, 15, 25, 0.9);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    color: #fff;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    white-space: nowrap;
+    border: 1px solid var(--glass-border);
+    z-index: 10;
+}
+
+.tech-icon-wrapper:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
 /* Education Timeline */
 .timeline {
     position: relative;
